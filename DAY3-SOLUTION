@@ -1,0 +1,93 @@
+//1a,Sort an array with Inbuild function
+
+sort012(arr) {
+        return arr.sort()
+    }
+//1b, Sort an array without Inbuild function
+let array = [-2,2,4,5,0,2,-1]
+function sortArray(array){
+
+    for(let i=0;i<array.length;i++){
+        for(let j=i+1;j<array.length;j++){
+            if(array[j]< array[i]){
+                let temp = array[i]
+                array[i] = array[j]
+                array[j] = temp
+            }
+        }
+    }
+
+    return array
+}
+
+console.log("+++++++++++sorted array",sortArray(array))
+
+//2a, Check if two arrays are equal or not - using Inbuilt function
+
+let array1 = [1,2,3,4,5]
+let array2 = [5,2,3,4,5]
+function checkEqual(array1,array2){
+    if (array1.length !== array2.length) { return false };
+
+    let result = true
+        for(let i=0;i<array1.length;i++){
+                if(array2.indexOf(array1[i]) == -1){
+                    result = false
+                    break
+                }else {
+                    let findIndex = array2.indexOf(array1[i])
+                    array2.splice(findIndex,1)
+                }
+        }
+        if(array2.length!=0){
+            result = false
+        }
+        return result
+}
+
+//2b, Check if two arrays are equal or not - Second way
+
+checkEqual(array1,array2 ) {
+        // code here
+        let map = {}
+
+    for(let num of array1){
+        map[num] = (map[num] || 0) + 1
+    }
+
+    for(let num of array2){
+        if(!map[num]){
+            return false
+        }
+        map[num]--
+    }
+    return true
+    }
+
+//3a,Rotate array by 1 - First way
+function rotateByOne(array){
+
+    let getLastElement = array[array.length-1]
+    array.splice(array.length-1,1)
+    array.unshift(getLastElement)
+
+    return array
+}
+
+console.log("++++rotate array",rotateByOne([1,2,3,4,5,45]))
+
+//3b, Rotate array by 1 - second way
+
+function rotateByOne(array){
+
+    let getLastElement = array[array.length-1]
+    for(let i=array.length-1;i>0;i--){
+        array[i] = array[i-1]
+    }
+    array[0] = getLastElement
+    return array
+}
+
+console.log("++++rotate array",rotateByOne([1,2,3,4,5,45]))
+
+
