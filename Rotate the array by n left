@@ -1,0 +1,24 @@
+//Rotate the array by n left
+
+let array = [1,2,3,4,5]
+let d = 3
+//output : [4,5,1,2,3]
+function rotateByArray(array,d){
+    let n = array.length
+let temp =[]
+for(let i=0;i<d;i++){
+    temp.push(array[i])
+}
+console.log(temp)
+
+for(let i=d;i<n;i++){
+    array[i-d] = array[i]
+}
+console.log(array)
+
+for(let i=n-d;i<n;i++){
+    array[i] = temp[i-(n-d)]
+}
+return array
+}
+console.log("+++result",rotateByArray(array,d))
