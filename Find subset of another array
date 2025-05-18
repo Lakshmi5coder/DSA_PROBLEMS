@@ -1,0 +1,25 @@
+let a = [11, 7, 1, 13, 21, 3, 7, 3]
+let b = [11, 3, 7, 1, 7,7]
+
+function findIsSubset(a,b){
+    let hashMap = {}
+    for(let item of a){
+        if(hashMap[item]){
+            hashMap[item]++
+        }else{
+            hashMap[item] = 1
+        }
+    }
+    
+    for(let item of b){
+        if(hashMap[item]){
+            hashMap[item]--
+        }else{
+            return false
+        }
+    }
+    console.log("hashmap",hashMap)
+    return true
+}
+
+console.log("+++++result",findIsSubset(a,b))
