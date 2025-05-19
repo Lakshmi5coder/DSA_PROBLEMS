@@ -1,0 +1,22 @@
+let input = [2, 3, 2, 3, 5]
+//output = [[0, 2, 2, 0, 1]]
+
+function frequenciesArray(array){
+    let tempObj = {}
+    for(let i = 0;i<input.length;i++){
+        if(tempObj[input[i]]){
+            tempObj[input[i]]++
+        }else{
+            tempObj[input[i]] = 1
+        }
+    }
+    for(let i=1;i<input.length;i++){
+        if(!tempObj[i]){
+            tempObj[i] = 0
+        }
+    }
+    return Object.values(tempObj)
+}
+
+
+console.log("___result",frequenciesArray(input))
